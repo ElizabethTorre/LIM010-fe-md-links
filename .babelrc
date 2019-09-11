@@ -1,4 +1,4 @@
 {
-  "plugins": ["@babel/plugin-transform-modules-commonjs"]
-/* añadir */
-}
+    "plugins": ["@babel/plugin-transform-modules-commonjs"]
+  /* añadir */
+  }

@@ -1,0 +1,37 @@
+{
+  "name": "lim010-fe-md-links",
+  "version": "1.0.0",
+  "description": "markdown links",
+  "main": ".eslintrc.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ElizabethTorre/LIM010-fe-md-links.git"
+  },
+  "keywords": [
+    "javascript",
+    "jest"
+  ],
+  "author": "Elizabeth Torre",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ElizabethTorre/LIM010-fe-md-links/issues"
+  },
+  "homepage": "https://github.com/ElizabethTorre/LIM010-fe-md-links#readme",
+  "devDependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.6.0",
+    "babel": "^6.23.0",
+    "babel-preset-env": "^1.7.0",
+    "eslint": "^6.3.0",
+    "eslint-plugin-react": "^7.14.3",
+    "jest": "^24.9.0"
+  },
+  "dependencies": {
+    "babel-install": "^2.1.0"
+  }
+}
