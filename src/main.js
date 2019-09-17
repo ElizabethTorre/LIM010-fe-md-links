@@ -15,9 +15,9 @@ const verifyPathAbs = () => {
 };
 
 // Retorna un buleano si cumple con la extensión md
-// const extensionmd = (router) => path.extname(router) === '.md';
+const extensionmd = (router) => path.extname(router) === '.md';
 
 module.exports = {
   verifyPathAbs,
-  // extensionmd,
+  extensionmd,
 };
