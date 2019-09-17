@@ -1,8 +1,14 @@
 // importamos la funcion que vamos a testear
-import { myFunction } from '../src/lib/index';
+import { verifyPathAbs } from '../src/main.js';
 
-describe('myFunction', () => {
-  it('debería ser una función', () => {
-    expect(typeof myFunction).toBe('function');
+const relativePath = '..test/index.spec.js';
+const absolutaPath = process.cwd();
+
+describe('verifyPathAbs', () => {
+  it('Si la ruta es absoluta, debería devolverla', () => {
+    expect(verifyPathAbs(absolutaPath)).toBe(absolutaPath);
+  });
+  it('Si no es absoluta, debería convertirla', () => {
+    expect(verifyPathAbs(relativePath)).toBe(absolutaPath);
   });
 });
