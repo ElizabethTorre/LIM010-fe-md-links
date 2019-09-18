@@ -2,11 +2,11 @@
 
 const path = require('path');
 
-import { verifyPathAbs, extensionmd, isFileOrDirectory } from '../src/main.js';
+import { verifyPathAbs, extensionmd, isFileOrDirectory, recursion } from '../src/main.js';
 
 // const relativePath = 'test\\index.spec.js';
 // const absolutaPath = 'C:\\Users\\Laboratoria\\Desktop\\PROYECTOS_LABORATORIA\\TRACK FED\\LIM010-fe-md-links\\test\\index.spec.js';
-const nonPathMd = 'markdown/file.js';
+// const nonPathMd = 'markdown/file.js';
 
 describe('verifyPathAbs', () => {
   it('Si la ruta es absoluta, debería devolverla', () => {
@@ -24,8 +24,22 @@ describe('extensionmd', () => {
 });
 
 describe('isFileOrDirectory', () => {
-  it('Si la ruta es file devolverá -Is file- de los contrario -Is Directory-', () => {
-    expect(isFileOrDirectory(path.join(process.cwd(),'markdown'))).toBe('Is Directory');
+  it('Si la ruta es file devolverá true de lo contrario false', () => {
+    expect(isFileOrDirectory(path.join(process.cwd(),'markdown'))).toBe(false);
   });
 });
 // console.log(path.join(process.cwd(),'hola'));
+
+describe('recursion', () => {
+  it('Devuelve un array con las rutas de los archivos de extensión .md', () => {
+    // If it should pass with deep equality, replace "toBe" with "toStrictEqual"
+    // Si debe pasar con profunda igualdad, reemplace "toBe" con "toStrictEqual"
+    expect(recursion(path.join(process.cwd(),'markdown'))).toStrictEqual(arrRecursionMd);
+  });
+});
+
+const arrRecursionMd = [
+  path.join(process.cwd(),'markdown\\directory\\fourth.md'),
+  path.join(process.cwd(),'markdown\\first.md'),
+  path.join(process.cwd(),'markdown\\second.md')
+];
