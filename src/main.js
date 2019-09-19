@@ -46,19 +46,19 @@ const recursion = (router) => {
   return arrFileMd;
 };
 
-const renderUnlink = (arrFileMd) => {
+const renderUnlink = (arrMd) => {
   const arrLinks = [];
   const render = new marked.Renderer();
-  arrFileMd.forEach((filerot) => {
-    const md = fs.readFileSync(filerot).toString();
-    render.link = (href, text) => {
+  arrMd.forEach((file) => {
+    render.link = (href, text, title) => {
       // render link text in a way that is appropriate
       // for a medium that is not a computer connected
       // to the Internet
-      arrLinks.push({ hrefp: href, textp: text });
+      arrLinks.push({ href:href, title: title, file: file });
     };
+    const md = fs.readFileSync(file).toString();
     marked(md, {
-      renderer: renderUnlink()
+      renderer: render
     });
   });
   return arrLinks;

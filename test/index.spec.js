@@ -46,10 +46,19 @@ const arrRecursionMd = [
 
 describe('renderUnlink', () => {
   it('Devuelve un objeto con la forma [{ href, text, file }]', () => {
-    // If it should pass with deep equality, replace "toBe" with "toStrictEqual"
-    // Si debe pasar con profunda igualdad, reemplace "toBe" con "toStrictEqual"
-    expect(renderUnlink(arrRecursionMd)).toBe(objLinks);
+    expect(renderUnlink(arrRecursionMd)).toStrictEqual(objLinks);
   });
 });
 
-const objLinks = [{href: 'https://nodejs.org/es/', text: 'none'}];
+const objLinks = [
+  {
+    href: 'https://nodejs.org/es/',
+    title: 'Node.js',
+    file: 'C:\\Users\\Etorre\\Desktop\\TRACK-FRONT-END\\LIM010-fe-md-links\\markdown\\first.md'
+  },
+  { 
+    href:'https://developers.google.com/v8/',
+    title: 'motor de JavaScript V8 de Chrome',
+    file: 'C:\\Users\\Etorre\\Desktop\\TRACK-FRONT-END\\LIM010-fe-md-links\\markdown\\first.md'
+  }
+];
