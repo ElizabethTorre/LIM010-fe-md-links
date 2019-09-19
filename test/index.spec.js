@@ -46,7 +46,7 @@ const arrRecursionMd = [
 
 describe('renderUnlink', () => {
   it('Devuelve un objeto con la forma [{ href, text, file }]', () => {
-    expect(renderUnlink(arrRecursionMd)).toStrictEqual(objLinks);
+    expect(renderUnlink(arrRecursionMd)[0].title).toStrictEqual('Node.js');
   });
 });
 
@@ -62,3 +62,4 @@ const objLinks = [
     file: 'C:\\Users\\Etorre\\Desktop\\TRACK-FRONT-END\\LIM010-fe-md-links\\markdown\\first.md'
   }
 ];
+
