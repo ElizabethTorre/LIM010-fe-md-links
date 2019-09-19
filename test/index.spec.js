@@ -2,7 +2,7 @@
 
 const path = require('path');
 
-import { verifyPathAbs, extensionmd, isFileOrDirectory, recursion } from '../src/main.js';
+import { verifyPathAbs, extensionmd, isFileOrDirectory, recursion, renderUnlink } from '../src/main.js';
 
 // const relativePath = 'test\\index.spec.js';
 // const absolutaPath = 'C:\\Users\\Laboratoria\\Desktop\\PROYECTOS_LABORATORIA\\TRACK FED\\LIM010-fe-md-links\\test\\index.spec.js';
@@ -43,3 +43,13 @@ const arrRecursionMd = [
   path.join(process.cwd(),'markdown\\first.md'),
   path.join(process.cwd(),'markdown\\second.md')
 ];
+
+describe('renderUnlink', () => {
+  it('Devuelve un objeto con la forma [{ href, text, file }]', () => {
+    // If it should pass with deep equality, replace "toBe" with "toStrictEqual"
+    // Si debe pasar con profunda igualdad, reemplace "toBe" con "toStrictEqual"
+    expect(renderUnlink(arrRecursionMd)).toBe(objLinks);
+  });
+});
+
+const objLinks = [{href: 'https://nodejs.org/es/', text: 'none'}];

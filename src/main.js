@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const marked = require('marked');
 // process.cwd() => ruta actual
 // ../markdown/first.md
 
@@ -26,8 +27,8 @@ const isFileOrDirectory = (router) => fs.statSync(router).isFile();
 const recursion = (router) => {
   const routerAbs = verifyPathAbs(router);
   let arrFileMd = [];
-  if(isFileOrDirectory(routerAbs)) {
-    if(extensionmd(routerAbs)) {
+  if (isFileOrDirectory(routerAbs)) {
+    if (extensionmd(routerAbs)) {
       arrFileMd.push(routerAbs);
     }
   } else {
@@ -45,9 +46,28 @@ const recursion = (router) => {
   return arrFileMd;
 };
 
+const renderUnlink = (arrFileMd) => {
+  const arrLinks = [];
+  const render = new marked.Renderer();
+  arrFileMd.forEach((filerot) => {
+    const md = fs.readFileSync(filerot).toString();
+    render.link = (href, text) => {
+      // render link text in a way that is appropriate
+      // for a medium that is not a computer connected
+      // to the Internet
+      arrLinks.push({ hrefp: href, textp: text });
+    };
+    marked(md, {
+      renderer: renderUnlink()
+    });
+  });
+  return arrLinks;
+};
+
 export {
   verifyPathAbs,
   extensionmd,
   isFileOrDirectory,
   recursion,
+  renderUnlink,
 };
