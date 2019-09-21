@@ -54,7 +54,7 @@ const renderUnlink = (arrMd) => {
       // render link text in a way that is appropriate
       // for a medium that is not a computer connected
       // to the Internet
-      arrLinks.push({ href:href, title: title, file: file });
+      arrLinks.push({ href:href, text: title, file: file });
     };
     const md = fs.readFileSync(file).toString();
     marked(md, {

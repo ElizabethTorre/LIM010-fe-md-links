@@ -4,10 +4,6 @@ const path = require('path');
 
 import { verifyPathAbs, extensionmd, isFileOrDirectory, recursion, renderUnlink } from '../src/main.js';
 
-// const relativePath = 'test\\index.spec.js';
-// const absolutaPath = 'C:\\Users\\Laboratoria\\Desktop\\PROYECTOS_LABORATORIA\\TRACK FED\\LIM010-fe-md-links\\test\\index.spec.js';
-// const nonPathMd = 'markdown/file.js';
-
 describe('verifyPathAbs', () => {
   it('Si la ruta es absoluta, debería devolverla', () => {
     expect(verifyPathAbs(path.join(process.cwd(),'test'))).toBe(path.join(process.cwd(),'test'));
@@ -45,21 +41,20 @@ const arrRecursionMd = [
 ];
 
 describe('renderUnlink', () => {
-  it('Devuelve un objeto con la forma [{ href, text, file }]', () => {
-    expect(renderUnlink(arrRecursionMd)[0].title).toStrictEqual('Node.js');
+  it('Debería devolver la propiedad text = Node.js', () => {
+    expect(renderUnlink(arrRecursionMd)[0].text).toBe('Node.js');
   });
 });
 
 const objLinks = [
   {
     href: 'https://nodejs.org/es/',
-    title: 'Node.js',
+    text: 'Node.js',
     file: 'C:\\Users\\Etorre\\Desktop\\TRACK-FRONT-END\\LIM010-fe-md-links\\markdown\\first.md'
   },
   { 
     href:'https://developers.google.com/v8/',
-    title: 'motor de JavaScript V8 de Chrome',
+    text: 'motor de JavaScript V8 de Chrome',
     file: 'C:\\Users\\Etorre\\Desktop\\TRACK-FRONT-END\\LIM010-fe-md-links\\markdown\\first.md'
   }
 ];
-
