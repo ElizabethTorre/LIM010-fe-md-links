@@ -10,7 +10,7 @@ const objLinks = [
 describe('optionValidate', () => {
     it('Deberia retornar propiedad ok:ok para un link disponible', (done) => {
         optionValidate(objLinks).then((response) => {
-          console.log(response);
+        // console.log(response);
         expect(response[0].ok).toBe('OK');
         done();
       });
@@ -36,6 +36,12 @@ describe('optionValidate', () => {
   });
   describe('optionStatsValidate', () => {
     it('Deberia retornar el TOTAL de links y la cantidad de UNICOS y BROKEN:', () => {
-        expect(optionStatsValidate(objLinks)).toBe(`Total:3\nUnique:3`);
+      expect(optionStatsValidate(objLinks)).toBe(`Total: 3\nUnique: 3\nBroken: 1`);
+      // optionStatsValidate(objLinks).then(response => {
+        // expect(response).toBe(`Total:3\nUnique:3`);
+        // done();
+      // });
     });
   });
+
+  console.log(optionStatsValidate(objLinks));

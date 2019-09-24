@@ -26,8 +26,8 @@
   },
   "homepage": "https://github.com/ElizabethTorre/LIM010-fe-md-links#readme",
   "devDependencies": {
-    "@babel/cli": "^7.6.0",
-    "@babel/core": "^7.6.0",
+    "@babel/cli": "^7.6.2",
+    "@babel/core": "^7.6.2",
     "@babel/plugin-transform-modules-commonjs": "^7.6.0",
     "babel": "^6.23.0",
     "babel-core": "^7.0.0-bridge.0",
