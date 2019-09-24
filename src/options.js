@@ -6,7 +6,7 @@ const objLinks = [
   { href: 'https://docsnpmjs.com/aboutnpm/', text: 'nodeJs', file: 'C:/Users/albit/Desktop/Track front/LIM010-fe-md-links/dir test/first.md' },
 ];
 
-export const reponseHTTP = (arrObjLinks) => {
+const optionValidate = (arrObjLinks) => {
   const arrObjValidate = arrObjLinks.map(obj => fetch(obj.href)
     .then(response => {
       if (response.status >= 200 && response.status < 400) {
@@ -19,14 +19,14 @@ export const reponseHTTP = (arrObjLinks) => {
       return {
         ...obj,
         status: response.status,
-        ok: 'fail',
+        ok: 'FAIL',
       };
     })
     .catch((error) => {
       return {
         ...obj,
         status: error.message,
-        ok: 'fail',
+        ok: 'FAIL',
       }
     })
   );
@@ -34,7 +34,33 @@ export const reponseHTTP = (arrObjLinks) => {
 };
 // reponseHTTP(objLinks).then(val => console.log(val));
 
+const optionStats = (objLinks) => {
+      const total = objLinks.length;
+      const arrLinks = objLinks.map(ele => ele.href);
+      const unique = Array.from(arrLinks).length;
+      return `Total: ${total}\nUnique: ${unique}`;
+      // console.log(`Total: ${total}\nUnique: ${unique}`);
+};
+// optionStats(objLinks);
 
+const optionStatsValidate = (objLinks) => {
+  const stats = optionStats(objLinks);
+  // console.log(stats);
+  // console.log(objLinks);
+  optionValidate(objLinks)
+    .then(response => {
+      const arrLinksBroken = response.filter(ele => ele.ok === 'FAIL').length;
+      return `${stats} \nBroken: ${arrLinksBroken}`;
+      // console.log(`${stats} \nBroken: ${arrLinksBroken}`);
+    });
+};
+// optionStatsValidate(objLinks);
+
+export {
+  optionValidate,
+  optionStats,
+  optionStatsValidate,
+}
 // https://www.npmjs.com/package/node-fetch
 // PASO 1: npm install node-fetch --save
 // PASO 2: const fetch = require('node-fetch');
