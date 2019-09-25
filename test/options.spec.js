@@ -34,14 +34,12 @@ describe('optionValidate', () => {
         expect(optionStats(objLinks)).toStrictEqual(`Total: 3\nUnique: 3`);
     });
   });
+  
   describe('optionStatsValidate', () => {
-    it('Deberia retornar el TOTAL de links y la cantidad de UNICOS y BROKEN:', () => {
-      expect(optionStatsValidate(objLinks)).toBe(`Total: 3\nUnique: 3\nBroken: 1`);
-      // optionStatsValidate(objLinks).then(response => {
-        // expect(response).toBe(`Total:3\nUnique:3`);
-        // done();
-      // });
+    it('Deberia retornar el TOTAL de links y la cantidad de UNICOS y BROKEN:', (done) => {
+      optionStatsValidate(objLinks).then(response => {
+        expect(response).toStrictEqual(`Total: 3\nUnique: 3 \nBroken: 2`);
+        done();
+      });
     });
   });
-
-  console.log(optionStatsValidate(objLinks));

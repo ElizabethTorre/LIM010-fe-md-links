@@ -1,22 +1,16 @@
-// import {
-//     verifyPathAbs,
-//     extensionmd,
-//     isFileOrDirectory,
-//     recursion,
-//     renderUnlink,
-// } from '../src/main.js';
-// import { recursion, renderUnlink } from '../src/main.js';
-const main = require('./main.js');
-const options = require('./options.js');
+#! / usr / bin / env nodonode.cmd cli.js
+import { recursion, renderUnlink } from './main.js'
+import { optionValidate } from './options.js'
+// const main = require('./main.js');
+// const options = require('./options.js');
 const fs = require('fs');
-const path = process.argv[2];
 // console.log(process.argv[2]);
 
-// if(path != '')
-// console.log(fs.existsSync(path));
-const mdLinks = (path, opts) => {
-    if (fs.existsSync(path)) {
-        console.log(main.renderUnlink(main.recursion(path)));
+export const mdLinks = (path, opts) => new Promise(resolve => {
+    const arrLinks = renderUnlink(recursion(path));
+    if (fs.existsSync(path) && opts.validate === false) {
+        resolve(arrLinks);
     }
-};
-mdLinks(path);
+    optionValidate(arrLinks).then(rsp => resolve(rsp));
+});
+// mdLinks('./markdown', { validate: true }).then(rsp => console.log(rsp));

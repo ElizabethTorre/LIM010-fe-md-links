@@ -47,7 +47,7 @@ const optionStatsValidate = (objLinks) => {
   const stats = optionStats(objLinks);
   // console.log(stats);
   // console.log(objLinks);
-  optionValidate(objLinks)
+  return optionValidate(objLinks)
     .then(response => {
       const arrLinksBroken = response.filter(ele => ele.ok === 'FAIL').length;
       return `${stats} \nBroken: ${arrLinksBroken}`;
@@ -56,7 +56,7 @@ const optionStatsValidate = (objLinks) => {
 };
 // optionStatsValidate(objLinks);
 
-module.exports = {
+export {
   optionValidate,
   optionStats,
   optionStatsValidate,
