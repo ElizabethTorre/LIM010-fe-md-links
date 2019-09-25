@@ -56,7 +56,7 @@ const optionStatsValidate = (objLinks) => {
 };
 // optionStatsValidate(objLinks);
 
-export {
+module.exports = {
   optionValidate,
   optionStats,
   optionStatsValidate,

@@ -64,7 +64,7 @@ const renderUnlink = (arrMd) => {
   return arrLinks;
 };
 
-export {
+module.exports = {
   verifyPathAbs,
   extensionmd,
   isFileOrDirectory,
