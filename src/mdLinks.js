@@ -1,4 +1,4 @@
-#! / usr / bin / env nodonode.cmd cli.js
+
 import { recursion, renderUnlink } from './main.js'
 import { optionValidate } from './options.js'
 // const main = require('./main.js');
