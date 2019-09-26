@@ -45,8 +45,6 @@ const optionStats = (objLinks) => {
 
 const optionStatsValidate = (objLinks) => {
   const stats = optionStats(objLinks);
-  // console.log(stats);
-  // console.log(objLinks);
   return optionValidate(objLinks)
     .then(response => {
       const arrLinksBroken = response.filter(ele => ele.ok === 'FAIL').length;
@@ -74,5 +72,3 @@ export {
 // headers( Encabezados )
 // url (Cuerda)
 // LINKS OK STATUS de 200 a 399
-
-

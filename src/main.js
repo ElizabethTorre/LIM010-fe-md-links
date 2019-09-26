@@ -15,7 +15,13 @@ const verifyPathAbs = (router) => {
   // console.log(router);
 };
 // verifyPathAbs('../src/main.js');
+// Recorta la ruta absoluta en sólo la carpeta directa y el file
 
+const reduceRouterAbs = (routeAbs) => {
+  const inicio = routeAbs.slice(0, routeAbs.lastIndexOf('\\'));
+  const fin = inicio.lastIndexOf('\\');
+  return routeAbs.slice(fin);
+}
 // Retorna un buleano si cumple con la extensión md
 const extensionmd = (router) => path.extname(router) === '.md';
 
@@ -54,7 +60,7 @@ const renderUnlink = (arrMd) => {
       // render link text in a way that is appropriate
       // for a medium that is not a computer connected
       // to the Internet
-      arrLinks.push({ href:href, text: title, file: file });
+      arrLinks.push({ href: href, text: title, file: file });
     };
     const md = fs.readFileSync(file).toString();
     marked(md, {
@@ -67,6 +73,7 @@ const renderUnlink = (arrMd) => {
 export {
   verifyPathAbs,
   extensionmd,
+  reduceRouterAbs,
   isFileOrDirectory,
   recursion,
   renderUnlink,
