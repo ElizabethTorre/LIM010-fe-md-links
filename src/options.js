@@ -25,7 +25,7 @@ const optionValidate = (arrObjLinks) => {
     .catch((error) => {
       return {
         ...obj,
-        status: error.message,
+        status: 'ERROR',
         ok: 'FAIL',
       }
     })

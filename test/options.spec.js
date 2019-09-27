@@ -23,7 +23,7 @@ describe('optionValidate', () => {
     });
     it('Deberia retornar status -error.message- para un link no disponible', (done) => {
         optionValidate(objLinks).then((response) => {
-        expect(response[2].status).toBe('request to https://docsnpmjs.com/aboutnpm/ failed, reason: getaddrinfo ENOTFOUND docsnpmjs.com docsnpmjs.com:443');
+        expect(response[2].status).toBe('ERROR');
         done();
       });
     });

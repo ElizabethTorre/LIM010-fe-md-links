@@ -72,8 +72,8 @@ const renderUnlink = (arrMd) => {
 
 export {
   verifyPathAbs,
-  extensionmd,
   reduceRouterAbs,
+  extensionmd,
   isFileOrDirectory,
   recursion,
   renderUnlink,

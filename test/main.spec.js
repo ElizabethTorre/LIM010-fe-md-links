@@ -2,7 +2,7 @@
 
 const path = require('path');
 
-import { verifyPathAbs, extensionmd, isFileOrDirectory, recursion, renderUnlink } from '../src/main.js';
+import { verifyPathAbs, reduceRouterAbs, extensionmd, isFileOrDirectory, recursion, renderUnlink } from '../src/main.js';
 
 describe('verifyPathAbs', () => {
   it('Si la ruta es absoluta, debería devolverla', () => {
@@ -10,6 +10,12 @@ describe('verifyPathAbs', () => {
   });
   it('Si no es absoluta, debería convertirla', () => {
     expect(verifyPathAbs('test')).toBe(path.join(process.cwd(),'test'));
+  });
+});
+
+describe('reduceRouterAbs', () => {
+  it('Debería mostrar la ruta desde la carpeta directa en la que se encuentra el archivo o directorio', () => {
+    expect(reduceRouterAbs(path.join(process.cwd(),'markdown'))).toBe('\\LIM010-fe-md-links\\markdown');
   });
 });
 
