@@ -1,10 +1,10 @@
 
-import { recursion, renderUnlink } from './main.js'
+import { getFilesMd, getObjByLink } from './main.js'
 import { optionValidate } from './options.js'
 const fs = require('fs');
 
 export const mdLinks = (path, opts) => new Promise(resolve => {
-    const arrLinks = renderUnlink(recursion(path));
+    const arrLinks = getObjByLink(getFilesMd(path));
     if (fs.existsSync(path) && opts.validate === false) {
         resolve(arrLinks);
     }

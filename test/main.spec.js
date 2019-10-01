@@ -2,7 +2,7 @@
 
 const path = require('path');
 
-import { verifyPathAbs, reduceRouterAbs, extensionmd, isFileOrDirectory, recursion, renderUnlink } from '../src/main.js';
+import { verifyPathAbs, reduceRouterAbs, extensionmd, isFileOrDirectory, getFilesMd, getObjByLink } from '../src/main.js';
 
 describe('verifyPathAbs', () => {
   it('Si la ruta es absoluta, debería devolverla', () => {
@@ -30,25 +30,22 @@ describe('isFileOrDirectory', () => {
     expect(isFileOrDirectory(path.join(process.cwd(),'markdown'))).toBe(false);
   });
 });
-// console.log(path.join(process.cwd(),'hola'));
 
-describe('recursion', () => {
+describe('getFilesMd', () => {
   it('Devuelve un array con las rutas de los archivos de extensión .md', () => {
-    // If it should pass with deep equality, replace "toBe" with "toStrictEqual"
-    // Si debe pasar con profunda igualdad, reemplace "toBe" con "toStrictEqual"
-    expect(recursion(path.join(process.cwd(),'markdown'))).toStrictEqual(arrRecursionMd);
+    expect(getFilesMd(path.join(process.cwd(),'markdown'))).toStrictEqual(arrgetFilesMdMd);
   });
 });
 
-const arrRecursionMd = [
+const arrgetFilesMdMd = [
   path.join(process.cwd(),'markdown\\directory\\fourth.md'),
   path.join(process.cwd(),'markdown\\first.md'),
   path.join(process.cwd(),'markdown\\second.md')
 ];
 
-describe('renderUnlink', () => {
+describe('getObjByLink', () => {
   it('Debería devolver la propiedad text = Node.js', () => {
-    expect(renderUnlink(arrRecursionMd)[0].text).toBe('Node.js');
+    expect(getObjByLink(arrgetFilesMdMd)[0].text).toBe('Node.js');
   });
 });
 
