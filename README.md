@@ -81,7 +81,7 @@ mdLinks("./some/example.md", { validate: false })
     // => [{ href, text, file }]
   })
 ```
-#### Retorno al verficar cada link:
+#### Retorno al verificar cada link:
 
 ```js
 mdLinks("./some/example.md", { validate: true })
