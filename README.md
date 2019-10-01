@@ -22,28 +22,27 @@ algunas estadísticas.
 <img src="./img/Flujo-diagram.png">
 
 
-### API 
+## Guía de uso e instalación 
 
-`mdLinks(path, options)`
+API `mdLinks(path, options)`
 
-##### Instalación
+### Instalación
 
 - Para instalar la libreria vía npm ejecutar la siguiente linea a través de la terminal:
 
-  `npm install ElizabetTorre/md-links`
+  `npm i @etorre/md-links`
 
-##### Argumentos
+### Uso
+#### Argumentos
 
-- `path`: Ruta absoluta o relativa al archivo o directorio. Si la ruta pasada es
-  relativa, debe resolverse como relativa al directorio desde donde se invoca
-  node - _current working directory_).
+- `path`: Ruta absoluta o relativa al archivo o directorio.
 - `options`: Un objeto con las siguientes propiedades:
   * `validate`: Booleano que determina si se desea validar los links
     encontrados.
 
-##### Valor de retorno
+#### Valor de retorno
 
-La función debe retornar una promesa (`Promise`) que resuelva a un arreglo
+La función retorna una promesa (`Promise`) que resuelva a un arreglo
 (`Array`) de objetos (`Object`), donde cada objeto representa un link y contiene
 las siguientes propiedades:
 
@@ -74,7 +73,22 @@ mdLinks("./some/dir")
   })
   .catch(console.error);
 ```
+#### Retorno por defecto:
 
+```js
+mdLinks("./some/example.md", { validate: false })
+  .then(links => {
+    // => [{ href, text, file }]
+  })
+```
+#### Retorno al verficar cada link:
+
+```js
+mdLinks("./some/example.md", { validate: true })
+  .then(links => {
+    // => [{ href, text, file, status, ok }]
+  })
+```
 ### CLI (Command Line Interface - Interfaz de Línea de Comando)
 
 Para ejecutar la aplicación debe hacerlo de la siguiente
@@ -84,12 +98,7 @@ manera a través de la terminal:
 
 Por ejemplo:
 
-```sh
-$ md-links ./some/example.md
-./some/example.md http://algo.com/2/3/ Link a algo
-./some/example.md https://otra-cosa.net/algun-doc.html algún doc
-./some/example.md http://google.com/ Google
-```
+<img src="./img/onlypath.png">
 
 El comportamiento por defecto no debe validar si las URLs responden ok o no,
 solo debe identificar el archivo markdown (a partir de la ruta que recibe como
@@ -105,16 +114,9 @@ Si pasamos la opción `--validate`, el módulo debe hacer una petición HTTP par
 averiguar si el link funciona o no. Si el link resulta en una redirección a una
 URL que responde ok, entonces consideraremos el link como ok.
 
-Por ejemplo:
+<img src="./img/option_validate.png">
 
-```sh13d99df067c1
-$ md-13d99df067c1
-./some/example.md http://algo.com/2/3/ ok 200 Link a algo
-./some/example.md https://otra-cosa.net/algun-doc.html fail 404 algún doc
-./some/example.md http://google.com/ ok 301 Google
-```
-
-Vemos que el _output_ en este caso incluye la palabra `ok` o `fail` después de
+Vemos que el _output_ en este caso incluye la palabra `OK` o `FAIL` después de
 la URL, así como el status de la respuesta recibida a la petición HTTP a dicha
 URL.
 
@@ -123,25 +125,45 @@ URL.
 Si pasamos la opción `--stats` el output (salida) será un texto con estadísticas
 básicas sobre los links.
 
-```sh
-$ md-links ./some/example.md --stats
-Total: 3
-Unique: 3
-```
+<img src="./img/option_stats.png">
 
 También podemos combinar `--stats` y `--validate` para obtener estadísticas que
 necesiten de los resultados de la validación.
 
-```sh
-$ md-links ./some/example.md --stats --validate
-Total: 3
-Unique: 3
-Broken: 1
-```
+<img src="./img/option_stats_validate.png">
 
 ## Objetivos de aprendizaje
 
-- .
+### Javascript
+- [ ] Uso de callbacks
+- [x] Consumo de Promesas
+- [x] Creacion de Promesas
+- [x] Modulos de Js
+- [x] Recursión
+
+### Node
+- [x] Sistema de archivos
+- [x] package.json
+- [x] crear modules
+- [x] Instalar y usar modules
+- [x] npm scripts
+- [x] CLI (Command Line Interface - Interfaz de Línea de Comando)
+
+### Testing
+- [x] Testeo de tus funciones
+- [x] Testeo asíncrono
+- [ ] Uso de librerias de Mock
+- [ ] Mocks manuales
+- [ ] Testeo para multiples Sistemas Operativos
+
+### Git y Github
+- [x] Organización en Github
+
+### Buenas prácticas de desarrollo
+- [ ] Modularización
+- [ ] Nomenclatura / Semántica
+- [ ] Linting
+
 
 
 ### Tutoriales / NodeSchool workshoppers
