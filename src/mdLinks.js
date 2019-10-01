@@ -9,4 +9,3 @@ export const mdLinks = (path, opts) => new Promise(resolve => {
     }
     optionValidate(arrLinks).then(rsp => resolve(rsp));
 });
-// mdLinks('./markdown', { validate: true }).then(rsp => console.log(rsp));

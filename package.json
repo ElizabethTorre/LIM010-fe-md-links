@@ -1,5 +1,5 @@
 {
-  "name": "lim010-fe-md-links",
+  "name": "@etorre/md-links",
   "version": "1.0.0",
   "description": "markdown links",
   "main": "eslintrc.js",
