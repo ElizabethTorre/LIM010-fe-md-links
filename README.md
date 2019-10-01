@@ -98,7 +98,7 @@ manera a través de la terminal:
 
 Por ejemplo:
 
-<img src="./img/onlypath.png">
+![onlypath](https://user-images.githubusercontent.com/51327685/66007635-d27b1180-e478-11e9-8c3c-5fca192f4f43.PNG)
 
 El comportamiento por defecto no debe validar si las URLs responden ok o no,
 solo debe identificar el archivo markdown (a partir de la ruta que recibe como
@@ -114,7 +114,7 @@ Si pasamos la opción `--validate`, el módulo debe hacer una petición HTTP par
 averiguar si el link funciona o no. Si el link resulta en una redirección a una
 URL que responde ok, entonces consideraremos el link como ok.
 
-<img src="./img/option_validate.png">
+![option_validate](https://user-images.githubusercontent.com/51327685/66007660-eaeb2c00-e478-11e9-9eb1-dba41abfe8e4.PNG)
 
 Vemos que el _output_ en este caso incluye la palabra `OK` o `FAIL` después de
 la URL, así como el status de la respuesta recibida a la petición HTTP a dicha
@@ -125,12 +125,12 @@ URL.
 Si pasamos la opción `--stats` el output (salida) será un texto con estadísticas
 básicas sobre los links.
 
-<img src="./img/option_stats.png">
+![option_stats](https://user-images.githubusercontent.com/51327685/66007682-fb030b80-e478-11e9-85c7-07101ef6903d.PNG)
 
 También podemos combinar `--stats` y `--validate` para obtener estadísticas que
 necesiten de los resultados de la validación.
 
-<img src="./img/option_stats_validate.png">
+![option_stats_validate](https://user-images.githubusercontent.com/51327685/66007688-ffc7bf80-e478-11e9-9ae1-79ca6ed4f658.PNG)
 
 ## Objetivos de aprendizaje
 
