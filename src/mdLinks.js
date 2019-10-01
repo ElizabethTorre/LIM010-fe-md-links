@@ -1,4 +1,3 @@
-
 import { getFilesMd, getObjByLink } from './main.js'
 import { optionValidate } from './options.js'
 const fs = require('fs');

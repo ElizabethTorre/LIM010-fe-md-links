@@ -22,7 +22,7 @@ const optionValidate = (arrObjLinks) => {
         ok: 'FAIL',
       };
     })
-    .catch((error) => {
+    .catch(() => {
       return {
         ...obj,
         status: 'ERROR',
@@ -39,7 +39,6 @@ const optionStats = (objLinks) => {
       const arrLinks = objLinks.map(ele => ele.href);
       const unique = Array.from(arrLinks).length;
       return `Total: ${total}\nUnique: ${unique}`;
-      // console.log(`Total: ${total}\nUnique: ${unique}`);
 };
 // optionStats(objLinks);
 
@@ -49,7 +48,6 @@ const optionStatsValidate = (objLinks) => {
     .then(response => {
       const arrLinksBroken = response.filter(ele => ele.ok === 'FAIL').length;
       return `${stats} \nBroken: ${arrLinksBroken}`;
-      // console.log(`${stats} \nBroken: ${arrLinksBroken}`);
     });
 };
 // optionStatsValidate(objLinks);
@@ -59,6 +57,7 @@ export {
   optionStats,
   optionStatsValidate,
 }
+
 // https://www.npmjs.com/package/node-fetch
 // PASO 1: npm install node-fetch --save
 // PASO 2: const fetch = require('node-fetch');

@@ -43,7 +43,7 @@ const getFilesMd = (router) => {
   return arrFileMd;
 };
 
-// 
+// Obtenemos las propiedades href/text/file de cada link en un obj y guardamos en un array
 const getObjByLink = (arrMd) => {
   const arrLinks = [];
   const render = new marked.Renderer();
