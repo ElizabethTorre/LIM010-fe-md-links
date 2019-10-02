@@ -41,12 +41,6 @@ describe('cli', () => {
     })
   });
   it('Si los no recibe argumentos (ruta/opción validate/opción stats), debería pedir INGRESAR RUTA', (done) => {
-    cli('./markdown', '--validate', '--stats').then(response => {
-      expect(response).toStrictEqual('El comando es incorrecto, prueba "--stats --validate"');
-      done();
-    })
-  });
-  it('Si los no recibe argumentos (ruta/opción validate/opción stats), debería pedir INGRESAR RUTA', (done) => {
     cli('./markdown', '--', undefined).then(response => {
       expect(response).toStrictEqual('El comando no es válido, utiliza los comandos "--validate", "--stats" o "--validate --stats"');
       done();

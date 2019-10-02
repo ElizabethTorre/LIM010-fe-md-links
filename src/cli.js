@@ -43,9 +43,6 @@ export const cli = (path, validate, stats) => new Promise(resolve => {
     return mdLinks(path, { validate: false }).then(rsp => optionStatsValidate(rsp)
       .then(result => result).then(response => resolve(response)));
 
-  } else if (path !== undefined && validate === '--validate' && stats === '--stats') {
-    resolve('El comando es incorrecto, prueba "--stats --validate"');
-
   } else if (validate !== '--validate' || validate !== '--stats') {
     resolve('El comando no es válido, utiliza los comandos "--validate", "--stats" o "--validate --stats"');
   }

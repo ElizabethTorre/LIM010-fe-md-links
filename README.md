@@ -51,44 +51,33 @@ las siguientes propiedades:
 - `file`: Ruta del archivo donde se encontró el link.
 
 #### Ejemplo
-
+Deberás importar la librería en tu archivo .js:
 ```js
-const mdLinks = require("md-links");
-
-mdLinks("./some/example.md")
-  .then(links => {
-    // => [{ href, text, file }]
-  })
-  .catch(console.error);
-
-mdLinks("./some/example.md", { validate: true })
-  .then(links => {
-    // => [{ href, text, file, status, ok }]
-  })
-  .catch(console.error);
-
-mdLinks("./some/dir")
-  .then(links => {
-    // => [{ href, text, file }]
-  })
-  .catch(console.error);
+const mdLinks = require('@etorre/md-links');
 ```
 #### Retorno por defecto:
 
 ```js
-mdLinks("./some/example.md", { validate: false })
-  .then(links => {
+mdLinks.mdLinks('./src', {validate : false})
+  .then(links => console.log(links));
     // => [{ href, text, file }]
-  })
 ```
+![validate_false](https://user-images.githubusercontent.com/51327685/66081890-97d3b080-e52e-11e9-930f-6dd20fb2c686.PNG)
+
 #### Retorno al verificar cada link:
 
+En éste caso, se adicionan dos propiedades a cada objeto:
+
+- `status`: el status(número) de la respuesta recibida a la petición HTTP a dicha URL.
+- `ok`: OK o FAIL según la respuesta de HTTP al averiguar si el link funciona o no.
+
 ```js
-mdLinks("./some/example.md", { validate: true })
-  .then(links => {
+mdLinks.mdLinks('./src', { validate: true })
+  .then(links => console.log(links));
     // => [{ href, text, file, status, ok }]
-  })
 ```
+![validate_true](https://user-images.githubusercontent.com/51327685/66081884-94402980-e52e-11e9-8399-7e0c13bca591.PNG)
+
 ### CLI (Command Line Interface - Interfaz de Línea de Comando)
 
 Para ejecutar la aplicación debe hacerlo de la siguiente
@@ -135,7 +124,6 @@ necesiten de los resultados de la validación.
 ## Objetivos de aprendizaje
 
 ### Javascript
-- [ ] Uso de callbacks
 - [x] Consumo de Promesas
 - [x] Creacion de Promesas
 - [x] Modulos de Js
@@ -152,17 +140,14 @@ necesiten de los resultados de la validación.
 ### Testing
 - [x] Testeo de tus funciones
 - [x] Testeo asíncrono
-- [ ] Uso de librerias de Mock
-- [ ] Mocks manuales
-- [ ] Testeo para multiples Sistemas Operativos
 
 ### Git y Github
 - [x] Organización en Github
 
 ### Buenas prácticas de desarrollo
-- [ ] Modularización
-- [ ] Nomenclatura / Semántica
-- [ ] Linting
+- [x] Modularización
+- [x] Nomenclatura / Semántica
+- [x] Linting
 
 
 

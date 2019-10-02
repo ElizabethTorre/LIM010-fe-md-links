@@ -1,8 +1,8 @@
 {
   "name": "@etorre/md-links",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "markdown links",
-  "main": "eslintrc.js",
+  "main": "lib/mdLinks.js",
   "directories": {
     "test": "test"
   },
@@ -34,7 +34,6 @@
     "babel-jest": "^24.8.0",
     "eslint": "^6.3.0",
     "eslint-plugin-jest": "^22.1.2",
-    "eslint-plugin-react": "^7.14.3",
     "jest": "^24.9.0"
   },
   "dependencies": {
