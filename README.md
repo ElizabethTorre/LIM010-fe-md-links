@@ -147,7 +147,7 @@ necesiten de los resultados de la validación.
 ### Buenas prácticas de desarrollo
 - [x] Modularización
 - [x] Nomenclatura / Semántica
-- [x] Linting
+- [ ] Linting
 
 
 
