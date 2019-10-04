@@ -2,7 +2,7 @@
 
 import { mdLinks } from './mdLinks.js';
 import { optionStats, optionStatsValidate } from './options.js';
-import { reduceRouterAbs } from './main.js';
+// import { reduceRouterAbs } from './main.js';
 
 const path = process.argv[2];
 const firstOption = process.argv[3];
@@ -18,8 +18,8 @@ export const cli = (path, validate, stats) => new Promise(resolve => {
         let responseTerminal = '';
         rsp.forEach(link => {
           const textTruncate = link.text.substr(0, 50);
-          const reduceRouter = reduceRouterAbs(link.file);
-          responseTerminal += `.${reduceRouter} ${link.href} ${textTruncate}\n`;
+          // const reduceRouter = reduceRouterAbs(link.file);
+          responseTerminal += `${link.file} ${link.href} ${textTruncate}\n`;
         });
         resolve(responseTerminal);
       })
@@ -31,8 +31,8 @@ export const cli = (path, validate, stats) => new Promise(resolve => {
         let responseTerminal = '';
         rsp.forEach(link => {
           const textTruncate = link.text.substr(0, 50);
-          const reduceRouter = reduceRouterAbs(link.file);
-          responseTerminal += `.${reduceRouter} ${link.href} ${link.ok} ${link.status} ${textTruncate}\n`;
+          // const reduceRouter = reduceRouterAbs(link.file);
+          responseTerminal += `${link.file} ${link.href} ${link.ok} ${link.status} ${textTruncate}\n`;
         });
         resolve(responseTerminal);
       });

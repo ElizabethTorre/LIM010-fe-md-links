@@ -13,11 +13,11 @@ const verifyPathAbs = (router) => {
 
 // Recorta la ruta absoluta en sólo la carpeta directa y el file
 
-const reduceRouterAbs = (routeAbs) => {
-  const inicio = routeAbs.slice(0, routeAbs.lastIndexOf('\\'));
-  const fin = inicio.lastIndexOf('\\');
-  return routeAbs.slice(fin);
-}
+// const reduceRouterAbs = (routeAbs) => {
+//   const inicio = routeAbs.slice(0, routeAbs.lastIndexOf('\\'));
+//   const fin = inicio.lastIndexOf('\\');
+//   return routeAbs.slice(fin);
+// }
 
 // Retorna un buleano si cumple con la extensión md
 const extensionmd = (router) => path.extname(router) === '.md';
@@ -61,7 +61,6 @@ const getObjByLink = (arrMd) => {
 
 export {
   verifyPathAbs,
-  reduceRouterAbs,
   extensionmd,
   isFileOrDirectory,
   getFilesMd,

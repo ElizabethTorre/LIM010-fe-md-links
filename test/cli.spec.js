@@ -1,7 +1,9 @@
 import { cli } from '../src/cli.js';
 
-const output1 = `.\\markdown\\first.md https://nodejs.org/es/ Node.js\n.\\markdown\\first.md https://developers.google.com/v8/ motor de JavaScript V8 de Chrome\n`;
-const output2 = `.\\markdown\\first.md https://nodejs.org/es/ OK 200 Node.js\n.\\markdown\\first.md https://developers.google.com/v8/ OK 200 motor de JavaScript V8 de Chrome\n`;
+const path = require('path');
+
+const output1 = `${path.join(process.cwd(), 'markdown','first.md')} https://nodejs.org/es/ Node.js\n${path.join(process.cwd(), 'markdown','first.md')} https://developers.google.com/v8/ motor de JavaScript V8 de Chrome\n`;
+const output2 = `${path.join(process.cwd(), 'markdown','first.md')} https://nodejs.org/es/ OK 200 Node.js\n${path.join(process.cwd(), 'markdown','first.md')} https://developers.google.com/v8/ OK 200 motor de JavaScript V8 de Chrome\n`;
 
 describe('cli', () => {
   it('Si los no recibe argumentos (ruta/opción validate/opción stats), debería pedir INGRESAR RUTA', (done) => {
