@@ -1,4 +1,14 @@
+// jest.mock('node-fetch');
+
 import { optionValidate, optionStats, optionStatsValidate } from '../src/options.js'
+
+const fetchMock = require('../__mocks__/node-fetch');
+fetchMock
+  .mock('https://docs.npmjs.com/about-npm/', 200)
+  .mock('https://docs.npmjs.com/aboutnpm/', 404)
+  .mock('https://docsnpmjs.com/aboutnpm/', () => {
+    throw new Error(ERROR_MESSAGE)
+  })
 
 const objLinks = [
   { href: 'https://docs.npmjs.com/about-npm/', text: 'nodeJs', file: 'C:/Users/albit/Desktop/Track front/LIM010-fe-md-links/dir test/first.md' },
